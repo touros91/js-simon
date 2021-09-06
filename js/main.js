@@ -40,8 +40,13 @@ setTimeout(function(){
 
         var numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
 
-        while (isNaN(numero) || numeriUtente.includes(numero)) {
-            alert("Errore");
+        while (isNaN(numero)) {
+            alert("Errore. Devi inserire un numero!");
+            numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
+        }
+
+        while (numeriUtente.includes(numero)) {
+            alert("Errore. Hai già inserito questo numero. Non puoi ripetere lo stesso numero!")
             numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
         }
 
@@ -68,4 +73,4 @@ setTimeout(function(){
         document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
     }
    
-}, 3000);
+}, 30000);
