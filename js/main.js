@@ -34,7 +34,7 @@ var indovinati = [];
 
 setTimeout(function(){
 
-    // 3.b chiedo all'utente di inserire un numero per 5 volte con validazione isNaN oppure numero già inserito
+    // 3.b chiedo all'utente di inserire un numero per 5 volte con validazione isNaN oppure numero non compreso tra 1 e 100 oppure numero già inserito e mostro alert relativo al tipo di errore
 
 	for (var i = 0; i < 5; i++) {
 
