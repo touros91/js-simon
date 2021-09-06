@@ -57,9 +57,15 @@ setTimeout(function(){
         }
     }
 
-    // 3.d mostro in un alert e nella pagina html il totale dei numeri indovinati e quali numeri sono stati indovinati
+    // 3.d se l'utente non ha indovinato nessun numero mostro un messaggio che lo avvisa, altrimenti mostro in un alert e nella pagina html il totale dei numeri indovinati e quali numeri sono stati indovinati
 
-    alert("Totale di numeri indovinati: " + numeriIndovinati + ". I numeri da te indovinati sono i seguenti: " + indovinati);
+    if (numeriIndovinati == 0) {
+        alert("Mi dispiace non hai indovinato nessun numero!");
+        document.getElementById("risultato").innerHTML = `Nessun numero indovinato!`;
+    } else {
+        alert("Totale di numeri indovinati: " + numeriIndovinati + ". I numeri da te indovinati sono i seguenti: " + indovinati);
 
-    document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
-}, 30000);
+        document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
+    }
+   
+}, 3000);
