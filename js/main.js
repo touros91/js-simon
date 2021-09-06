@@ -29,7 +29,6 @@ alert(numeriCasuali);
 // 3. creo la funzione che dopo 30 secondi chiede all'utente di inserie 5 numeri mostrati precedentemente e verifica se ha indovinato, in caso affermativo mostra quanti numeri ha indovinato e quali numeri ha indovinato
 
 var numeriUtente = [];
-var numeriIndovinati = 0;
 var indovinati = [];
 
 setTimeout(function(){
@@ -57,20 +56,19 @@ setTimeout(function(){
 
     for (var i = 0; i < numeriUtente.length; i++) {
         if( numeriUtente.includes(numeriCasuali[i]) ) {
-            numeriIndovinati++;
             indovinati.push(numeriCasuali[i]);
         }
     }
 
     // 3.d se l'utente non ha indovinato nessun numero mostro un messaggio che lo avvisa, altrimenti mostro in un alert e nella pagina html il totale dei numeri indovinati e quali numeri sono stati indovinati
 
-    if (numeriIndovinati == 0) {
+    if (indovinati.length == 0) {
         alert("Mi dispiace non hai indovinato nessun numero!");
         document.getElementById("risultato").innerHTML = `Nessun numero indovinato!`;
     } else {
-        alert("Totale di numeri indovinati: " + numeriIndovinati + ". I numeri da te indovinati sono i seguenti: " + indovinati);
+        alert("Totale di numeri indovinati: " + indovinati.length + ". I numeri da te indovinati sono i seguenti: " + indovinati);
 
-        document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
+        document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + indovinati.length + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
     }
    
 }, 30000);
