@@ -40,8 +40,8 @@ setTimeout(function(){
 
         var numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
 
-        while (isNaN(numero)) {
-            alert("Errore. Devi inserire un numero!");
+        while (isNaN(numero) || numero < 1 || numero > 100) {
+            alert("Errore. Devi inserire un numero compreso tra 1 e 100!");
             numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
         }
 
@@ -73,4 +73,4 @@ setTimeout(function(){
         document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
     }
    
-}, 30000);
+}, 1000);
