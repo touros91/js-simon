@@ -5,7 +5,7 @@
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 
-// 1. creo una funziona che genera un numero random
+// 1. creo una funzione che genera un numero random
 
 function numeroRandom (min, max) {
 	return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -19,12 +19,14 @@ for (var i = 0; i < 5; i++) {
 	var random = numeroRandom(1, 100);
     if(numeriCasuali.includes(random) == false) {
 	    numeriCasuali.push(random);
+    } else {
+        i--;
     }
 }
 
 alert(numeriCasuali);
 
-// 3. creo la funzione che dopo 30 secondi chiede all'utente di inserie 5 numeri mostrai precedentemente e verifica se ha indovinato, in caso affermativo mostra quanti numeri ha indovinato e quali numeri ha indovinato
+// 3. creo la funzione che dopo 30 secondi chiede all'utente di inserie 5 numeri mostrati precedentemente e verifica se ha indovinato, in caso affermativo mostra quanti numeri ha indovinato e quali numeri ha indovinato
 
 var numeriUtente = [];
 var numeriIndovinati = 0;
@@ -32,13 +34,21 @@ var indovinati = [];
 
 setTimeout(function(){
 
-    // 3.b chiedo all'utente di inserire un numero per 5 volte
+    // 3.b chiedo all'utente di inserire un numero per 5 volte con validazione isNaN
 
 	for (var i = 0; i < 5; i++) {
-        numeriUtente.push(parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!")));
+
+        var numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
+
+        while (isNaN(numero)) {
+            alert("Errore");
+            numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
+        }
+
+        numeriUtente.push(numero);
     }
 
-    // 3.c  verifico per 5 volte ovvero la lunghezza dell'array se il numero inserito dall'utente è presente nell'array di numeri random creato in precedenza, in caso affermativo incremento il contatore dei numeriIndovinati e aggiungo il numero uguale nell'array indovinati per poter mostrare il suo contenuto in seguito
+    // 3.c  verifico per 5 volte ovvero per tutta la lunghezza dell'array se il numero inserito dall'utente è presente nell'array di numeri random creato in precedenza, in caso affermativo incremento il contatore dei numeriIndovinati e aggiungo il numero uguale nell'array indovinati per poter mostrare il suo contenuto in seguito
 
     for (var i = 0; i < numeriUtente.length; i++) {
         if( numeriUtente.includes(numeriCasuali[i]) ) {
@@ -47,8 +57,9 @@ setTimeout(function(){
         }
     }
 
-    // 3.d mostro il totale dei numeri indovinati e quali numeri sono stati indovinati
+    // 3.d mostro in un alert e nella pagina html il totale dei numeri indovinati e quali numeri sono stati indovinati
 
     alert("Totale di numeri indovinati: " + numeriIndovinati + ". I numeri da te indovinati sono i seguenti: " + indovinati);
 
+    document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + numeriIndovinati + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
 }, 30000);
