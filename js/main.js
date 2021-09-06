@@ -34,13 +34,13 @@ var indovinati = [];
 
 setTimeout(function(){
 
-    // 3.b chiedo all'utente di inserire un numero per 5 volte con validazione isNaN
+    // 3.b chiedo all'utente di inserire un numero per 5 volte con validazione isNaN oppure numero già inserito
 
 	for (var i = 0; i < 5; i++) {
 
         var numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
 
-        while (isNaN(numero)) {
+        while (isNaN(numero) || numeriUtente.includes(numero)) {
             alert("Errore");
             numero = parseInt(prompt("Inserisci i numeri che hai visto precedentemente uno alla volta. Testa la tua memoria!"));
         }
