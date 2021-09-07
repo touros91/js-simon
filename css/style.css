@@ -21,3 +21,19 @@ div, span {
     font-size: 20px;
     margin-left: 10px;
 }
+
+#riprova {
+    display: none;
+    margin: 20px 0 0 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #185399;
+    background-color: #EDE2AD;
+    font-size: 20px;
+}
+
+#riprova.visibile {
+    display: block;
+}

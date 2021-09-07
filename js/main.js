@@ -68,6 +68,13 @@ setTimeout(function(){
 
         document.getElementById("risultato").innerHTML = `<p>Totale di numeri indovinati: ` + `<strong>` + indovinati.length + `</strong>` + `</p>` + `<p>I numeri che hai indovinato sono i seguenti: ` + `<strong>` + indovinati + `</strong>` + `</p>`; 
     }
+
+    document.getElementById("riprova").classList.add("visibile");
+    document.getElementById("riprova").addEventListener("click",
+        function (){
+            location.reload();
+        }
+    );
    
 }, 30000);
 
