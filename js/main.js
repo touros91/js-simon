@@ -15,18 +15,16 @@ function numeroRandom (min, max) {
 
 var numeriCasuali = [];
 
-for (var i = 0; i < 5; i++) {
+while (numeriCasuali.length < 5) {
 	var random = numeroRandom(1, 100);
     if(numeriCasuali.includes(random) == false) {
 	    numeriCasuali.push(random);
-    } else {
-        i--;
     }
 }
 
 alert(numeriCasuali);
 
-// 3. creo la funzione che dopo 30 secondi chiede all'utente di inserie 5 numeri mostrati precedentemente e verifica se ha indovinato, in caso affermativo mostra quanti numeri ha indovinato e quali numeri ha indovinato
+// 3. creo la funzione con setTimeout che dopo 30 secondi chiede all'utente di inserie 5 numeri mostrati precedentemente e verifica se ha indovinato, in caso affermativo mostra quanti numeri ha indovinato e quali numeri ha indovinato
 
 var numeriUtente = [];
 var indovinati = [];
@@ -72,3 +70,21 @@ setTimeout(function(){
     }
    
 }, 30000);
+
+// 4. aggiunto conto alla rovescia con setInterval e poi interrotto con clearInterval
+
+var contatore = 30;
+
+var clock = setInterval(function(){
+    contatore--;
+    document.getElementById("conto-rovescia").innerHTML = "Tempo rimanente: " + contatore;
+    console.log(contatore);
+    if (contatore == 0) {
+        document.getElementById("conto-rovescia").innerHTML = "";
+        clearInterval(clock);
+    } 
+}, 1000);
+
+
+
+
