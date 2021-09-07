@@ -77,13 +77,14 @@ var contatore = 30;
 
 var clock = setInterval(function(){
     contatore--;
-    document.getElementById("conto-rovescia").innerHTML = "Tempo rimanente: " + contatore;
+    document.getElementById("conto-rovescia").innerHTML = `Tempo rimanente: ${contatore} secondi`;
     console.log(contatore);
-    if (contatore == 0) {
+    if (contatore == -1) {
         document.getElementById("conto-rovescia").innerHTML = "";
         clearInterval(clock);
     } 
-}, 1000);
+    // impostato a 999 centesimi di secondo (e non a 1000) per fare arrivare il contatore a 0 pochissimo prima che parte il setTimeout sopra 
+}, 999);
 
 
 
